@@ -21,4 +21,4 @@ async def upload_file(file: UploadFile):
     new_row = data_preparation(data)
     pred = prediction(df = new_row)
 
-    return {"prediction": pred}
+    return {"prediction": pred, "real": data['data_result']['cargo_space']['calculation_info']['density_percent']}

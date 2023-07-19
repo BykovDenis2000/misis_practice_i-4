@@ -8,4 +8,5 @@ def prediction(df):
     dataframe = h2o.H2OFrame(df)
     prediction = saved_model.predict(dataframe)
     print(prediction)
-    return prediction
+    prediction = prediction.as_data_frame()
+    return prediction['predict'][0]

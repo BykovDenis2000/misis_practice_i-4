@@ -170,6 +170,9 @@
       <span id="uploadForm_Size"></span>
     </div>
   </div>
+  <div id="responseContainer">
+    <!-- Здесь будет выводиться ответ от сервера -->
+  </div>
 
   <script>
     function uploadFile() {
@@ -193,6 +196,8 @@
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
           console.log('Файл успешно отправлен на сервер.');
+          const responseData = JSON.parse(xhr.responseText);
+          displayResponse(responseData);
         }
       };
       xhr.send(formData);
@@ -207,7 +212,11 @@
         statusText.textContent = `Загружено ${percentLoaded}% | `
       }
     }
-
+    function displayResponse(responseData) {
+            const responseContainer = document.getElementById("responseContainer");
+            responseContainer.innerText = "Предсказанная плотность: " + JSON.stringify(responseData.prediction) +
+             "\nРеальная плотность: " +  JSON.stringify(responseData.real);
+        }
   </script>
 </body>
 
