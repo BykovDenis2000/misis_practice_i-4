@@ -4,6 +4,7 @@
 
 Пример установки всех необходимых библиотеки на Windows:
 Все команды вводятся в командной строке Windows
+```bash
 pip install uvicorn
 pip install fastapi
 для H2O вот это:
@@ -13,7 +14,7 @@ pip install matplotlib
 pip install tabulate
 pip install requests
 pip install future
-
+```
 Для запуска веб-приложения нужно поднять локальный сервер для этого из папки ./misis_practice_i-4-main/app в командной строке Windows прописать uvicorn main:app. (для прекращения работы достаточно в командной строке нажать комбинацию клавиш CTRL+C)
 При успешном выполнении сервер поднимется по адресу http://127.0.0.1:8000
 
